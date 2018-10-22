@@ -4,24 +4,32 @@
 // When size is submitted by the user, call makeGrid()
 
 // Getting height
+
+
 const inputOfHeight = document.body.querySelector('#inputHeight');
 inputOfHeight.addEventListener('keyup', function(event) {
     var pressed_key = Number(event.target.value);
     inputOfHeight.value = pressed_key;
 } )
+
+
 //getting Width
+
+
 const inputOfWidth = document.body.querySelector('#inputWidth');
 inputOfWidth.addEventListener('keyup', function(event) {
     var pressed_key2 = Number(event.target.value);
     inputOfWidth.value = pressed_key2;
 } )
  
+
 // Everyhting is stored now, even store it more if you want
 // When submit is clicked, is displays these values
 
 //This submit function will be called when the click event occurs
 // nice
 // 
+
 
 const sumbitButton = document.body.querySelectorAll('input')[2];
  sumbitButton.addEventListener('click', function(event) {
@@ -31,6 +39,8 @@ const sumbitButton = document.body.querySelectorAll('input')[2];
     clearAll();
     makeGrid();
  } )
+
+ 
  // So far code does what expected
 // The Height value is captured
 // Now do the same for width
@@ -38,9 +48,7 @@ const sumbitButton = document.body.querySelectorAll('input')[2];
  
 
 function makeGrid() {
-
 // Your code goes here!
-
     for (let i =0; i<inputOfHeight.value; i++) {
         var canvasTable = document.body.querySelector('#pixelCanvas');
         var canvasRow = document.createElement('tr');
@@ -50,10 +58,10 @@ function makeGrid() {
             canvasRow.appendChild(canvasColom);
         }
     }
-    var elts = document.body.querySelectorAll('td')
-    for (let i = 0; i< elts.length; i++) { 
-        var what = document.body.querySelectorAll('td')[i];
-        what.addEventListener('click', function (e) {
+    var tableElements = document.body.querySelectorAll('td')
+    for (let i = 0; i< tableElements.length; i++) { 
+        var singleElement = document.body.querySelectorAll('td')[i];
+        singleElement.addEventListener('click', function (e) {
                 e.target.style.background = document.body.querySelector('#colorPicker').value;
         }, true)
     }
