@@ -28,6 +28,8 @@ const sumbitButton = document.body.querySelectorAll('input')[2];
     event.preventDefault();
     console.log('Height of '+ inputOfHeight.value + ' was pressed\n');
     console.log('Width  of '+ inputOfWidth.value + ' was pressed\n');
+    clearAll();
+    makeGrid();
  } )
  // So far code does what expected
 // The Height value is captured
@@ -39,4 +41,40 @@ function makeGrid() {
 
 // Your code goes here!
 
+    for (let i =0; i<inputOfHeight.value; i++) {
+        var canvasTable = document.body.querySelector('#pixelCanvas');
+        var canvasRow = document.createElement('tr');
+        canvasTable.appendChild(canvasRow);
+        for (let j = 0; j<inputOfWidth.value; j++) {
+            var canvasColom = document.createElement('td');
+            canvasRow.appendChild(canvasColom);
+        }
+    }
+    var elts = document.body.querySelectorAll('td')
+    for (let i = 0; i< elts.length; i++) { 
+        var what = document.body.querySelectorAll('td')[i];
+        what.addEventListener('click', function (e) {
+                e.target.style.background = document.body.querySelector('#colorPicker').value;
+        }, true)
+    }
+       
+
+    
+
+
+};
+
+/*canvasColom.addEventListener('click', function () {
+    canvasColom.style.background = document.body.querySelector('#colorPicker').value;
+}, true)
+*/
+
+function clearAll() {
+    var rowsList = document.body.querySelectorAll('tr');
+    for (let i = 0; i<rowsList.length; i++)  {
+        rowsList[i].remove();
+    }
+    
+
 }
+// crt + /
